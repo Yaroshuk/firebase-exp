@@ -1,0 +1,15 @@
+.login-button {
+    border: solid 2px #26ffc7;
+    background: #01172e;
+    color: #26ffc7;
+    margin-bottom: 20px;
+}
+
+.login-button:hover, .login-button:active {
+    background: #26ffc7;
+    color: #01172e;
+}
+
+.login-page {
+    background: #01172e;
+}

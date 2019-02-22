@@ -1,0 +1,18 @@
+.custom-button {
+    display: block;
+    width: 200px;
+    height: 60px;
+    border-radius: 100px;
+    border: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #01172e;
+    background: #26ffc7;
+    cursor: pointer;
+}
+
+.custom-button:disabled {
+    background: #f2f3f4;
+    color: #c0c5cb;
+    cursor: auto;
+}

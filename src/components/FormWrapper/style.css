@@ -1,0 +1,25 @@
+.form-wrapper form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-wrapper .recaptcha-wrapper {
+    margin-bottom: 15px;
+}
+
+.form-wrapper .form-head {
+    width: 304px;
+    color: #cfd2d6;
+    margin-bottom: 20px;
+}
+
+.form-wrapper .form-head p {
+    margin: 0;
+}
+
+.form-wrapper .form-control {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
