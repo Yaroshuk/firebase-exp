@@ -112,7 +112,7 @@ class SignUpForm extends React.Component {
             <CustomButton
               disabled={!formValid}
               type="submit"
-              text="login"
+              text="sign up"
             />
           </div>
         </form>

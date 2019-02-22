@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { connect } from 'react-redux';
 import app from "../../base";
 
 import Home from "./Home";
@@ -18,21 +17,12 @@ class HomeContainer extends Component {
   };
 
   render() {
-    const { user } = this.props;
-
     return (
       <Home
-        user={user}
         signOut={this.handleSignOut}
       />
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-};
-
-export default withRouter(connect(mapStateToProps)(HomeContainer));
+export default withRouter(HomeContainer);

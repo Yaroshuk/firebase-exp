@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { setUser } from "../../actions";
 import app from "../../base";
 import firebase from "firebase";
+import Router from '../../routes';
 
 import SignUpView from "./SignUp";
 
@@ -70,14 +73,14 @@ class SignUpContainer extends Component {
   };
 
   setUserInDatabase = () => {
-    const {phone} = this.state;
+    const { phone, name } = this.state;
 
-    const usersRef = firebase.database().ref('/users');
+    const usersRef = app.database().ref('/users');
 
     const userRef = usersRef.child(phone);
 
     userRef.once('value').then(() => {
-      userRef.set(true);
+      userRef.set(name);
     });
   };
 
@@ -85,6 +88,7 @@ class SignUpContainer extends Component {
     event.preventDefault();
     const { Code } = event.target.elements;
     const { conf, name } = this.state;
+    const { setUser } = this.props;
 
     this.setError(null);
 
@@ -95,6 +99,10 @@ class SignUpContainer extends Component {
         user.updateProfile({
           displayName: name,
         }).then(() => {
+
+          let newUser = app.auth().currentUser;
+
+          setUser(newUser);
 
           this.setUserInDatabase();
 
@@ -120,4 +128,11 @@ class SignUpContainer extends Component {
   }
 }
 
-export default withRouter(SignUpContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (user) => dispatch(setUser(user))
+  }
+};
+
+
+export default withRouter(connect(null, mapDispatchToProps)(SignUpContainer));
