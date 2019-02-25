@@ -5,7 +5,7 @@
     margin-bottom: 20px;
 }
 
-.login-button:hover {
+.no-touch .login-button:hover {
     background: #26ffc7;
     color: #01172e;
 }
