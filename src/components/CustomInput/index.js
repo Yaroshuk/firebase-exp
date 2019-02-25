@@ -8,7 +8,7 @@ import { ReactComponent as CodeErrorLogo } from './Icons/password2.svg';
 
 import './style.css';
 
-const CustomInput = ({error, touched, icon, validate, onChange, onBlur, ...props}) => {
+const CustomInput = ({error, touched, icon, validate, onFocus, onChange, onBlur, ...props}) => {
 
   let IconComponent = PhoneLogo;
 
@@ -35,6 +35,10 @@ const CustomInput = ({error, touched, icon, validate, onChange, onBlur, ...props
           onBlur={(e) => {
             if (!onBlur) return;
             onBlur(e);
+          }}
+          onFocus={(e) => {
+            if (!onFocus) return;
+            onFocus(e);
           }}
         />
       </label>

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    max-width: 100%;
 }
 
 .custom-input-logo {
@@ -18,11 +19,13 @@
     display: flex;
     align-items: center;
     background: #fff;
+    max-width: 100%;
 }
 
 .custom-input input {
     padding: 0 0 0 5px;
     height: 40px;
+    max-width: calc(100% - 42px);
     width: 255px;
     border: solid 1px #efefef;
     border-left: none;

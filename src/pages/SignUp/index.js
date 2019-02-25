@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setUser } from "../../actions";
 import app from "../../base";
 import firebase from "firebase";
-import Router from '../../routes';
 
 import SignUpView from "./SignUp";
 
@@ -32,6 +31,10 @@ class SignUpContainer extends Component {
     });
   };
 
+  getRightPhone = (phone) => {
+    return `+1${phone}`;
+  };
+
   handleSignUp = (event) => {
     event.preventDefault();
 
@@ -41,7 +44,7 @@ class SignUpContainer extends Component {
 
     const usersRef = firebase.database().ref('/users');
 
-    const userRef = usersRef.child(Phone.value);
+    const userRef = usersRef.child(this.getRightPhone(Phone.value));
 
     userRef.once('value').then((snapshot) => {
       if (snapshot.val()) {
@@ -57,13 +60,13 @@ class SignUpContainer extends Component {
 
     firebase.auth().useDeviceLanguage();
 
-    app.auth().signInWithPhoneNumber(Phone.value, appVerifier)
+    app.auth().signInWithPhoneNumber(this.getRightPhone(Phone.value), appVerifier)
       .then((confirmationResult) => {
 
         this.setState({
           verifyStep: true,
           name: Name.value,
-          phone: Phone.value,
+          phone: this.getRightPhone(Phone.value),
           conf: confirmationResult
         })
 

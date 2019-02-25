@@ -21,7 +21,7 @@ class VerifyCodeForm extends React.Component {
 
     switch (name) {
       case 'Code':
-        value.length === 0 && value.length < 6
+        value.length === 0 || value.length !== 6
           ? CodeValid= false
           : CodeValid = true;
         break;
@@ -61,6 +61,8 @@ class VerifyCodeForm extends React.Component {
               placeholder="Enter Verification Code"
               icon="code"
               onChange={this.onChange}
+              onFocus={this.onChange}
+              onBlur={this.onChange}
               value={Code}
             />
           </div>

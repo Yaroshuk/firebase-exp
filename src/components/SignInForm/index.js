@@ -9,7 +9,7 @@ class SignInForm extends React.Component {
     super(props);
 
     this.state = {
-      Phone: '+1',
+      Phone: '',
       PhoneValid: false,
       PhoneTouched: false,
       formValid: false,
@@ -23,7 +23,7 @@ class SignInForm extends React.Component {
 
     switch (name) {
       case 'Phone':
-        value.length === 0
+        value.length === 0 || value.length !== 10
           ? PhoneValid = false
           : PhoneValid = true;
         break;
@@ -80,6 +80,7 @@ class SignInForm extends React.Component {
               type="tel"
               placeholder="Phone"
               icon="phone"
+              onFocus={this.onChange}
               onChange={this.onChange}
               onBlur={this.onChange}
               value={Phone}

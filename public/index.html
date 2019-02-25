@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
     <!--
@@ -37,5 +37,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
+      this frame prevents back forward cache
+    </iframe>
+    <script>
+      window.addEventListener('unload', function () {});
+    </script>
   </body>
 </html>

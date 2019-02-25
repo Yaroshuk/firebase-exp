@@ -10,7 +10,7 @@ class SignUpForm extends React.Component {
 
     this.state = {
       Name: '',
-      Phone: '+1',
+      Phone: '',
       NameValid: false,
       PhoneValid: false,
       NameTouched: false,
@@ -31,7 +31,7 @@ class SignUpForm extends React.Component {
           : NameValid = true;
         break;
       case 'Phone':
-        value.length === 0 || value.length > 17
+        value.length === 0 || value.length !== 10
           ? PhoneValid = false
           : PhoneValid = true;
         console.log(value.length)
@@ -89,6 +89,7 @@ class SignUpForm extends React.Component {
               touched={NameTouched}
               placeholder="Name"
               icon="name"
+              onFocus={this.onChange}
               onChange={this.onChange}
               onBlur={this.onChange}
               value={Name}
@@ -101,6 +102,7 @@ class SignUpForm extends React.Component {
               placeholder="Phone"
               icon="phone"
               onChange={this.onChange}
+              onFocus={this.onChange}
               onBlur={this.onChange}
               value={Phone}
             />

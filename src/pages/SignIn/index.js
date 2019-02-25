@@ -28,17 +28,21 @@ class SignInContainer extends Component {
     });
   };
 
+  getRightPhone = (phone) => {
+    return `+1${phone}`;
+  };
+
   loginUser = (Phone) => {
     const appVerifier = window.recaptchaVerifier;
 
     firebase.auth().useDeviceLanguage();
 
-    app.auth().signInWithPhoneNumber(Phone.value, appVerifier)
+    app.auth().signInWithPhoneNumber(this.getRightPhone(Phone.value), appVerifier)
       .then((confirmationResult) => {
         this.setState({
           verifyStep: true,
           conf: confirmationResult,
-          phone: Phone.value
+          phone: this.getRightPhone(Phone.value)
         })
       }).catch((error) => {
       this.setError(error);
@@ -53,7 +57,7 @@ class SignInContainer extends Component {
 
     const usersRef = firebase.database().ref('/users');
 
-    const userRef = usersRef.child(Phone.value);
+    const userRef = usersRef.child(this.getRightPhone(Phone.value));
 
     userRef.once('value').then((snapshot) => {
       if (snapshot.val()) {
