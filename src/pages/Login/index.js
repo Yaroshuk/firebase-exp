@@ -13,16 +13,17 @@ class Login extends React.Component {
     return (
       <PageWrapper className="login-page">
         <ContentWrapper>
-          <CustomButton
-            className="login-button"
-            onClick={() => {history.push(Routes.signUp)}}
-            text="sign up"
-          />
-          <CustomButton
-            className="login-button"
-            onClick={() => {history.push(Routes.signIn)}}
-            text="log in"
-          />
+            <img className="login-image" src="https://via.placeholder.com/300" alt=""/>
+            <CustomButton
+              className="login-button"
+              onClick={() => {history.push(Routes.signUp)}}
+              text="sign up"
+            />
+            <CustomButton
+              className="login-button"
+              onClick={() => {history.push(Routes.signIn)}}
+              text="log in"
+            />
         </ContentWrapper>
       </PageWrapper>
     )
